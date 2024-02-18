@@ -42,3 +42,19 @@ Route::redirect('/test', '/greeting');
 Route::get('/home', function(){
 return '<a href="/greeting">Greeting</a>';
 });
+// opening blade file from route
+Route::get('/greeting', function(){
+return view('greeting');
+});
+// pass data from route to blade with using array method
+// Route::get('/teacher/{name}', function($name){
+// return view('user', ['name'=>$name]);
+// });
+// pass data from route to blade with using compact method 
+// Route::get('/teacher/{name}', function($name){
+// return view('user', compact('name'));
+// });
+// pass data from route to blade using with helper
+Route::get('teacher/{name}', function($name){
+return view('user')->with('name',$name);
+});
