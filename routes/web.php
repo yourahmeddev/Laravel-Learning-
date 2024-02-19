@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,3 +60,7 @@ return view('greeting');
 Route::get('teacher/{name}', function($name){
 return view('user')->with('name',$name);
 });
+// opening the blade file from controller
+Route::get('/users/{name}', [UserController::class, 'index']);
+// here we have resource routes for the post controller
+Route::resource('posts', PostController::class);
